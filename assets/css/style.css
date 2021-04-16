@@ -370,9 +370,9 @@ p {
 .navbar-mobile ul {
   display: block;
   position: absolute;
-  top: 55px;
+  top: 75px;
   right: 15px;
-  bottom: 670px;
+  bottom: 75px;
   left: 15px;
   padding: 10px 0;
   border-radius: 10px;
@@ -431,10 +431,17 @@ p {
 # Hero
 --------------------------------------------------------------*/
 #hero {
-  background: url("../img/home-bg.jpg") repeat scroll center center/cover;
+  background: url("../img/home-bg_small.webp") repeat scroll center center/cover #7B2122;
   height: 100vh;
   width: 100%;
 }
+
+@media (min-width: 1000px) {
+  #hero {
+    background: url("../img/home-bg.webp") repeat scroll center center/cover #7B2122;
+  }
+}
+
 
 #hero .hero-content {
   height: 100vh;
@@ -529,7 +536,7 @@ p {
 # Hero Contact
 --------------------------------------------------------------*/
 #hero-contact {
-  background: url("../img/home-bg_2.jpg") repeat scroll center/cover;
+  background: url("../img/home-bg_2.webp") repeat scroll center/cover;
   background-position: 0% 30%;
   height: 80vh;
   width: 100%;

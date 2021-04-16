@@ -1,0 +1,8 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^cintiabotelho\.arq\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.cintiabotelho\.arq\.br$
+RewriteRule ^/?$ "https\:\/\/cintiabotelho\.arq\.br\/" [R=301,L]
+

@@ -5,13 +5,115 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Cíntia Botelho - Desing de Interiores</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Arq. Cíntia Botelho - Desing de Interiores</title>
+  <meta content="Arquiteta Cíntia Botelho - Design de Interiores" name="description">
+  <meta content="arquiteta, arquitetura, interiores, design de interiores" name="keywords">
+
+  <style type=“text/css”>
+  #hero {
+    background: url("../img/home-bg_small.webp") repeat scroll center center/cover #7B2122;
+    height: 100vh;
+    width: 100%;
+  }
+
+  @media (min-width: 1000px) {
+    #hero {
+      background: url("../img/home-bg.webp") repeat scroll center center/cover #7B2122;
+    }
+  }
+
+  #hero .hero-content {
+    height: 100vh;
+    max-height: 100vh;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: none;
+    color: #fff;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  #hero a {
+    padding-top: 70px;
+  }
+  #hero a span {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: -12px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb05 1.5s infinite;
+    animation: sdb05 1.5s infinite;
+    box-sizing: border-box;
+  }
+  @-webkit-keyframes sdb05 {
+    0% {
+      -webkit-transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(-45deg) translate(-30px, 30px);
+      opacity: 0;
+    }
+  }
+  @keyframes sdb05 {
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(-45deg) translate(-30px, 30px);
+      opacity: 0;
+    }
+  }
+
+  .hero-content .list-social li {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .hero-content .list-social li i {
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  .hero-content .list-social li i:hover {
+    color: #b8684fff;
+    transition: all 0.5s ease-in-out 0s;
+  }
+  </style>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i" rel="stylesheet">
@@ -32,9 +134,32 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L16TZVESFB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L16TZVESFB');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GZDTKJ');</script>
+<!-- End Google Tag Manager -->
+
 </head>
 
 <body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GZDTKJ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
@@ -67,9 +192,9 @@
         <p>projetando e construindo sonhos</p>
 
         <ul class="list-unstyled list-social">
-          <li><a target="_blank" href="https://www.instagram.com/cintiabotelho.arq"><i class="bi bi-instagram"></i></a></li>
-          <li><a target="_blank" href="https://www.facebook.com/cintiabotelho.arq"><i class="bi bi-facebook"></i></a></li>
-          <li><a target="_blank" href="https://wa.me/5511975140451?text=Olá%20Cíntia,%20vim%20pelo%20seu%20site"><i class="bi bi-whatsapp"></i></a></li>
+          <li><a target="_blank" href="https://www.instagram.com/cintiabotelho.arq" rel="noopener"><i class="bi bi-instagram" ></i></a></li>
+          <li><a target="_blank" href="https://www.facebook.com/cintiabotelho.arq" rel="noopener"><i class="bi bi-facebook"></i></a></li>
+          <li><a target="_blank" href="https://wa.me/5511975140451?text=Olá%20Cíntia,%20vim%20pelo%20seu%20site" rel="noopener"><i class="bi bi-whatsapp"></i></a></li>
         </ul>
         <a href="#about"><span></span></a>
       </div>
@@ -86,7 +211,7 @@
           <div class="col-lg-4 ">
             <div class="div-img-bg">
               <div class="about-img">
-                <img src="assets/img/me.jpg" class="img-responsive" alt="me">
+                <img src="assets/img/me.webp" class="img-responsive" alt="me">
               </div>
             </div>
           </div>
@@ -178,49 +303,49 @@
                 <div class="title">Salas de Estar & Jantar
                   <div class="text"><a href="projetos-estar-jantar.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/residencial/estar-jantar/1.jpg">
+                <img alt="projeto sala de estar jantar" src="assets/img/projetos/residencial/estar-jantar/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Cozinhas
                   <div class="text"><a href="projetos-cozinha.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/residencial/cozinha/1.jpg">
+                <img alt="projeto cozinha" src="assets/img/projetos/residencial/cozinha/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Dormitórios
                   <div class="text"><a href="projetos-dorm-casal.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/residencial/dorm-casal/1.jpg">
+                <img alt="projeto dormitório" src="assets/img/projetos/residencial/dorm-casal/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Banheiros
                   <div class="text"><a href="projetos-banheiro.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/residencial/banheiro/1.jpg">
+                <img alt="projeto banheiro" src="assets/img/projetos/residencial/banheiro/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Varandas
                   <div class="text"><a href="projetos-varanda.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/residencial/varanda/1.jpg">
+                <img alt="projeto varanda" src="assets/img/projetos/residencial/varanda/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Quartos Infantis
                   <div class="text"><a href="projetos-infantil.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/residencial/infantil/1.jpg">
+                <img alt="projeto quarto infantil" src="assets/img/projetos/residencial/infantil/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Escritórios
                   <div class="text"><a href="projetos-escritorio.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/residencial/escritorio/1.jpg">
+                <img alt="projeto escritório" src="assets/img/projetos/residencial/escritorio/1_s.webp" importance="low">
               </div>
 
             </div>
@@ -237,28 +362,28 @@
                 <div class="title">Salão de Beleza
                   <div class="text"><a href="projetos-salao.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/comercial/salao/1.jpg">
+                <img alt="projeto salão de beleza" src="assets/img/projetos/comercial/salao/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Estúdio
                   <div class="text"><a href="projetos-estudio.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/comercial/estudio/1.jpg">
+                <img alt="projeto estúdio" src="assets/img/projetos/comercial/estudio/1_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Salão de Beleza
                   <div class="text"><a href="projetos-salao.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/comercial/salao/2.jpg">
+                <img alt="projeto salão de beleza 2" src="assets/img/projetos/comercial/salao/2_s.webp" importance="low">
               </div>
 
               <div class="swiper-slide">
                 <div class="title">Estúdio
                   <div class="text"><a href="projetos-estudio.html">veja mais...</a></div>
                 </div>
-                <img src="assets/img/projetos/comercial/estudio/2.jpg">
+                <img alt="projeto estúdio 2" src="assets/img/projetos/comercial/estudio/2_s.webp" importance="low">
               </div>
 
             </div>
@@ -280,7 +405,7 @@
 
             <div class="swiper-slide">
               <div class="testimonials-block">
-                <img src="assets/img/testimonials/thispersondoesnotexist1.jpg">
+                <img alt="" src="assets/img/testimonials/thispersondoesnotexist1.webp" importance="low">
                 <span>Lorenza Bianconi</span>
                 <p class="separator"><a>"Profissional maravilhosa,</a> desde a primeira conversa que tivemos entendeu as minhas necessidades e o que eu precisava no salão de beleza, estamos em obra e tudo está conforme planejamos. Com o projeto resolvi mexer no meu apartamento também, e ela resolvendo tudo com uma calma invejável, sem me preocupar com os problemas que sabemos são muitos quando resolvemos reformar algo. Se pudesse avalariaria com 100 estrelas, recomendo a todos!<a>"</a></p>
               </div>
@@ -288,7 +413,7 @@
 
             <div class="swiper-slide">
               <div class="testimonials-block">
-                <img src="assets/img/testimonials/thispersondoesnotexist2.jpg">
+                <img alt="" src="assets/img/testimonials/thispersondoesnotexist2.webp" importance="low">
                 <span>Rodrigo Oliveira</span>
                 <p class="separator"><a>"Excelente profissional!</a> Realizou meu projeto à contento. Arquiteta muito cordial e estabelece um ótimo relacionamento com o cliente, sem ficar fazendo propagandas exageradas e tampouco pressionando pela realização do serviço. Soube muito bem valorizar os espaços do imóvel e atender às exigências que efetuamos. Por fim, teus honorários são justos e dentro do padrão do mercado. Recomento a todos os teus serviços.<a>"</a></p>
               </div>
@@ -296,7 +421,7 @@
 
             <div class="swiper-slide">
               <div class="testimonials-block">
-                <img src="assets/img/testimonials/thispersondoesnotexist3.jpg">
+                <img alt="" src="assets/img/testimonials/thispersondoesnotexist3.webp" importance="low">
                 <span>Emerson Aparecido</span>
                 <p class="separator"><a>"</a>Trabalho realizado com dedicação e profissionalismo.<a>"</a></p>
               </div>
@@ -304,7 +429,7 @@
 
             <div class="swiper-slide">
               <div class="testimonials-block">
-                <img src="assets/img/testimonials/thispersondoesnotexist4.jpg">
+                <img alt="" src="assets/img/testimonials/thispersondoesnotexist4.webp" importance="low">
                 <span>Elisa Mayumi</span>
                 <p class="separator"><a>"Uma profissional atenciosa e dedicada</a> a atender seu cliente, super prestativa, e seu trabalho é de excelente bom gosto! Recomendo.<a>"</a></p>
               </div>
@@ -312,7 +437,7 @@
 
             <div class="swiper-slide">
               <div class="testimonials-block">
-                <img src="assets/img/testimonials/thispersondoesnotexist5.jpg">
+                <img alt="" src="assets/img/testimonials/thispersondoesnotexist5.webp" importance="low">
                 <span>Cibele</span>
                 <p class="separator"><a>"</a>A Cíntia é uma ótima profissional, super dedicada e super disposta a ajudar quando eu tinha dúvidas nas lojas, sempre com muito boa vontade. <a>Adorei a minha sala</a> e todos que vêm na minha casa me visitar ficam maravilhados de como ficou linda.<a>"</a></p>
               </div>
@@ -320,7 +445,7 @@
 
             <div class="swiper-slide">
               <div class="testimonials-block">
-                <img src="assets/img/testimonials/thispersondoesnotexist6.jpg">
+                <img alt="" src="assets/img/testimonials/thispersondoesnotexist6.webp" importance="low">
                 <span>Luciana</span>
                 <p class="separator"><a>"</a>Excelente profissional, <a>responsável e dedicada</a>, nos atendeu plenamente em nossos expectativas<a>"</a></p>
               </div>
@@ -339,7 +464,7 @@
         <div class="hero-contact-content">
 
           <div class="container-contact">
-            <a target="_blank" href="http://forms.gle/7pEACnkTAx8Pz89GA"><button>Solicite seu orçamento!</button></a>
+            <a target="_blank" href="http://forms.gle/7pEACnkTAx8Pz89GA" rel="noopener"><button>Solicite seu orçamento!</button></a>
           </div>
 
         </div>
@@ -354,9 +479,9 @@
       <div class="socials-media text-center">
 
         <ul class="list-unstyled">
-          <li><a target="_blank" href="https://www.instagram.com/cintiabotelho.arq/"><i class="bi bi-instagram"></i></a></li>
-          <li><a target="_blank" href="https://www.facebook.com/cintiabotelho.arq/"><i class="bi bi-facebook"></i></a></li>
-          <li><a target="_blank" href="https://wa.me/5511975140451?text=Olá%20Cíntia,%20vim%20pelo%20seu%20site"><i class="bi bi-whatsapp"></i></a></li>
+          <li><a target="_blank" href="https://www.instagram.com/cintiabotelho.arq/" rel="noopener"><i class="bi bi-instagram"></i></a></li>
+          <li><a target="_blank" href="https://www.facebook.com/cintiabotelho.arq/" rel="noopener"><i class="bi bi-facebook"></i></a></li>
+          <li><a target="_blank" href="https://wa.me/5511975140451?text=Olá%20Cíntia,%20vim%20pelo%20seu%20site" rel="noopener"><i class="bi bi-whatsapp"></i></a></li>
         </ul>
 
       </div>
