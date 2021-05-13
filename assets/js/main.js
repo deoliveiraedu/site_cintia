@@ -335,4 +335,18 @@
     }
   });
 
+  myID = document.getElementById("myID");
+
+  var myScrollFunc = function () {
+      var y = window.scrollY;
+      var y_max = document.documentElement.scrollHeight;
+      if (y >= 400 && y <= 0.9*y_max ) {
+          myID.className = "float-button show"
+      } else {
+          myID.className = "float-button hide"
+      }
+  };
+
+  window.addEventListener("scroll", myScrollFunc);
+
 })()
