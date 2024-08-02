@@ -197,44 +197,62 @@
             100% { background-position: 0 0; }
         }
 
-        @media (min-width: 1200px) {
-            .title {
-                font-size: 3vw;
-            }
-            
-            .text {
-                font-size: 4vw;
-            }
+        .overlay {
+            position: fixed;
+            top: 1%;
+            left: 1%;
+            width: 98%;
+            height: 98%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(77, 12, 12, 0.7));
+            backdrop-filter: blur(20px);
+            z-index: 10;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0);
+        }
+        
+        .overlay.active {
+            display: flex;
         }
 
-        @media (min-width: 768px) and (max-width: 1199px) {
-            .title {
-                font-size: 4vw;
-            }
-            
-            .text {
-                font-size: 6vw;
-            }
+        .option-button {
+            padding: 10px 20px;
+            margin: 10px;
+            background: #4ec7f3;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        @media (max-width: 767px) {
-            .title {
-                font-size: 7vw;
-            }
-            
-            .text {
-                font-size: 10vw;
-            }
+        .whatsapp-button {
+            padding: 10px 20px;
+            margin: 20px;
+            background: #25D366;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
         }
+
+        .back-button {
+            padding: 10px 20px;
+            margin: 10px;
+            background: #f44336;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
     </style>
-
-    <!-- Preload images -->
-    <link rel="preload" href="/assets/img/home-bg.webp" as="image">
-    <link rel="preload" href="/assets/img/projetos/residencial/estar-jantar/11.webp" as="image">
-    <link rel="preload" href="/assets/img/projetos/residencial/cozinha/2.webp" as="image">
-    <link rel="preload" href="/assets/img/projetos/residencial/banheiro/10.webp" as="image">
-    <link rel="preload" href="/assets/img/projetos/residencial/varanda/6.webp" as="image">
-
 </head>
 <body>
     <div class="container">
@@ -242,9 +260,9 @@
             <img src="/assets/img/logo-branco.png" alt="Arq. Cíntia Botelho Logo" class="logo">
         </header>
         <main>
-            <div id=titulo>
+            <div id="titulo">
                 VOCÊ MERECE 
-                <div id=flip>
+                <div id="flip">
                     <div><div>A VARANDA</div></div>    
                     <div><div>O BANHEIRO</div></div>
                     <div><div>A COZINHA</div></div>
@@ -254,8 +272,124 @@
                 DOS SEUS SONHOS!
             </div>
 
-            <a target="_blank" href="https://wa.me/5511975140451?text=Olá%20Cíntia,%20vim%20pelo%20seu%20site" rel="noopener" class="glow-on-hover">SOLICITE SEU ORÇAMENTO</a>
+            <a href="#" id="solicite-orcamento" class="glow-on-hover">SOLICITE SEU ORÇAMENTO</a>
         </main>
     </div>
+
+    <div class="overlay" id="overlay">
+        <div id="options-container">
+            <!-- Dynamic options will be inserted here -->
+        </div>
+        <button id="back-button" class="back-button" style="display: none;">Voltar</button>
+    </div>
+
+    <script>
+        const button = document.getElementById('solicite-orcamento');
+        const overlay = document.getElementById('overlay');
+        const optionsContainer = document.getElementById('options-container');
+        const backButton = document.getElementById('back-button');
+        let selections = [];
+        let stepHistory = [];
+        let currentStep = 'step1';
+
+        const options = {
+            step1: ['Varanda', 'Banheiro', 'Cozinha', 'Apartamento'],
+            step2: {
+                Varanda: ['Opção 1', 'Opção 2', 'Opção 3', 'Opção 4'],
+                Banheiro: ['Opção 1', 'Opção 2', 'Opção 3', 'Opção 4'],
+                Cozinha: ['Opção 1', 'Opção 2', 'Opção 3', 'Opção 4'],
+                Apartamento: ['Opção 1', 'Opção 2', 'Opção 3', 'Opção 4']
+            },
+            step3: {
+                'Opção 1': ['Detalhe 1', 'Detalhe 2', 'Detalhe 3', 'Detalhe 4'],
+                'Opção 2': ['Detalhe 1', 'Detalhe 2', 'Detalhe 3', 'Detalhe 4'],
+                'Opção 3': ['Detalhe 1', 'Detalhe 2', 'Detalhe 3', 'Detalhe 4'],
+                'Opção 4': ['Detalhe 1', 'Detalhe 2', 'Detalhe 3', 'Detalhe 4']
+            },
+            step4: {
+                'Detalhe 1': ['Final 1', 'Final 2', 'Final 3', 'Final 4'],
+                'Detalhe 2': ['Final 1', 'Final 2', 'Final 3', 'Final 4'],
+                'Detalhe 3': ['Final 1', 'Final 2', 'Final 3', 'Final 4'],
+                'Detalhe 4': ['Final 1', 'Final 2', 'Final 3', 'Final 4']
+            }
+        };
+
+        function createOptionButtons(stepOptions) {
+            optionsContainer.innerHTML = '';
+            
+            if (Array.isArray(stepOptions)) {
+                stepOptions.forEach(option => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.classList.add('option-button');
+                    button.addEventListener('click', () => handleOptionSelection(option));
+                    optionsContainer.appendChild(button);
+                });
+            } else {
+                console.error('stepOptions não é uma lista válida:', stepOptions);
+            }
+
+            // Exibir ou ocultar o botão "voltar"
+            backButton.style.display = stepHistory.length > 0 ? 'inline-block' : 'none';
+        }
+
+        function handleOptionSelection(option) {
+            // Adicionar seleção e avançar para o próximo passo
+            selections = selections.slice(0, stepHistory.length); // Limpar seleções futuras
+            selections.push(option);
+            
+            const nextStep = `step${selections.length + 1}`;
+            
+            if (options[nextStep] && options[nextStep][option]) {
+                const nextOptions = options[nextStep][option];
+                stepHistory.push({ step: currentStep, option });
+                currentStep = nextStep;
+                createOptionButtons(nextOptions);
+            } else {
+                showWhatsAppButton();
+            }
+        }
+
+        function showWhatsAppButton() {
+            optionsContainer.innerHTML = '';
+            const baseUrl = 'https://wa.me/5511975140451?text=Olá%20Cíntia,%20vim%20pelo%20seu%20site.%20Minhas%20escolhas%20são:%20';
+            const selectionsText = selections.join(',%20');
+            const finalUrl = `${baseUrl}${selectionsText}`;
+
+            const whatsappButton = document.createElement('a');
+            whatsappButton.href = finalUrl;
+            whatsappButton.textContent = 'Me chame no WhatsApp';
+            whatsappButton.classList.add('whatsapp-button');
+            optionsContainer.appendChild(whatsappButton);
+
+            // Ocultar botão "voltar" quando mostrar o WhatsApp
+            backButton.style.display = 'none';
+        }
+
+        function goToPreviousStep() {
+            if (stepHistory.length > 0) {
+                const lastStep = stepHistory.pop();
+                selections = selections.slice(0, stepHistory.length); // Ajustar seleções
+
+                currentStep = lastStep.step;
+
+                if (options[currentStep]) {
+                    const previousOptions = options[currentStep][selections[selections.length - 1]] || options[currentStep];
+                    createOptionButtons(previousOptions);
+                }
+            }
+        }
+
+        backButton.addEventListener('click', goToPreviousStep);
+
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            selections = [];
+            stepHistory = [];
+            currentStep = 'step1'; // Reiniciar o passo atual
+            createOptionButtons(options.step1);
+            overlay.classList.add('active');
+        });
+    </script>
 </body>
 </html>
