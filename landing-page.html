@@ -7,27 +7,15 @@
     <meta name="keywords" content="Architecture, Interior Design, Dream Home">
     <title>Arq. Cíntia Botelho</title>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
         body, html {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             overflow: hidden; /* Prevent scrolling */
             height: 100%;
-        }
-
-        /* Header styles */
-        header .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 10vh;
-            max-height: 80px;
-            margin: 20px auto;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
         }
 
         /* Container styles */
@@ -45,36 +33,167 @@
             background-size: cover;
             color: #fff;
             text-align: center;
+            animation: changeBackground 10s linear infinite; /* Ajuste o tempo total da animação */
+        }
+
+        #titulo {
+            color:#ffffff;
+            text-transform: uppercase;
+            font-size:36px;
+            font-weight:bold;  
+            width:100%;
+            bottom:45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-shadow: 1px 1px 2px #000000;
+        }
+
+        #flip {
+            height:50px;
+            overflow:hidden;
+        }
+            
+        #flip > div > div {
+            color:#fff;
+            padding:4px 12px;
+            height:45px;
+            margin-bottom:45px;
+            display:inline-block;
+            text-shadow: 1px 1px 2px #000000;
+        }
+            
+        #flip div:first-child {
+            animation: show 10s linear infinite;
+        }
+            
+        #flip div div {
+            background:#d78aeb;
+        }
+        #flip div:first-child div {
+            background:#4ec7f3;
+        }
+        #flip div:nth-child(2) div {
+            background:#42c58a;
+        }
+        #flip div:nth-child(3) div {
+            background:#FFD700;
+        }
+        #flip div:nth-child(4) div {
+            background:#DC143C; /* Nova cor adicionada */
+        }
+            
+        @keyframes show {
+            0% {margin-top:-480px;}
+            3% {margin-top:-372px;}
+            20% {margin-top:-372px;}
+            23% {margin-top:-278px;}
+            40% {margin-top:-278px;}
+            43% {margin-top:-185px;}
+            60% {margin-top:-185px;}
+            63% {margin-top:-90px;}
+            80% {margin-top:-90px;}
+            83% {margin-top:0px;}
+            95% {margin-top:0px;}
+            99.99% {margin-top:0px;}
+            100% {margin-top:-480px;}
+        }
+
+        @keyframes changeBackground {
+            0%, 22% { background: url('/assets/img/home-bg.webp') no-repeat center center fixed; background-size: cover;}
+            23%, 42% { background: url('/assets/img/projetos/residencial/estar-jantar/11.webp') no-repeat center center fixed; background-size: cover;}
+            43%, 62% { background: url('/assets/img/projetos/residencial/cozinha/3.webp') no-repeat center center fixed; background-size: cover;}
+            63%, 82% { background: url('/assets/img/projetos/residencial/banheiro/10.webp') no-repeat center center fixed; background-size: cover;}
+            83%, 99.99% { background: url('/assets/img/projetos/residencial/varanda/6.webp') no-repeat center center fixed; background-size: cover;}
+            100% { background: url('/assets/img/home-bg.webp') no-repeat center center fixed; background-size: cover;}
         }
         
-        /* Main content styles */
-        .title {
-            margin-bottom: 10px;
+        /* Header styles */
+        header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10vh;
+            max-height: 80px;
+            margin: 20px auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            -webkit-filter: drop-shadow(3px 3px 3px #222);
+            filter: drop-shadow(3px 3px 3px #222);
         }
 
-        .text {
-            margin-bottom: 20px;
-        }
-
-        .button {
-            background: linear-gradient(to right, #00589b 0%, #8bc1b7 50%, #be2822 100%);
-            background-size: 500%;
-            border: none;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-            color: #fff;
-            cursor: pointer;
-            outline: none;
-            appearance: none;
-            transition: background-position 1s;
-            margin-top: 100px;
-            font-size: 24px;
-            height: 60px;
+        
+        /* Botão */
+        .glow-on-hover {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 300px;
+            height: 60px;
+            border: none;
+            outline: none;
+            color: #ffffff;
+            background: #00000000;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 22px; /* Set font size to 24px */
+            text-decoration: none;
+            
+        }
+        
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -5px;
+            left:-5px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            animation: glowing 30s linear infinite;
+            opacity: 0.7;
+            border-radius: 10px;
+        }
+        
+        .glow-on-hover:active {
+            color: #000000;
+            text-shadow: 1px 1px 2px #ffffff;
+        }
+        
+        .glow-on-hover:active:after {
+            background: transparent;
+        }
+        
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #8a8a8ae7;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+        
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
         }
 
-        .button:hover {
-            background-position: 100%;
-        }
         @media (min-width: 1200px) {
             .title {
                 font-size: 3vw;
@@ -112,13 +231,19 @@
             <img src="/assets/img/logo-branco.png" alt="Arq. Cíntia Botelho Logo" class="logo">
         </header>
         <main>
-            <h2 class="title">Você merece</h2>
-            <h1 class="text">A CASA</h1>
-            <h2 class="title">dos seus sonhos!</h2>
-
-            <div class="container-contact">
-                <a target="_blank" href="#" rel="noopener"><button class="button">Qual é o seu sonho?</button></a>
+            <div id=titulo>
+                VOCÊ MERECE 
+                <div id=flip>
+                    <div><div>A VARANDA</div></div>    
+                    <div><div>O BANHEIRO</div></div>
+                    <div><div>A COZINHA</div></div>
+                    <div><div>O APARTAMENTO</div></div>
+                    <div><div>A ARQUITETA</div></div>
+                </div>
+                DOS SEUS SONHOS!
             </div>
+
+            <a target="_blank" href="https://wa.me/5511975140451?text=Olá%20Cíntia,%20vim%20pelo%20seu%20site" rel="noopener" class="glow-on-hover">QUAL É O SEU SONHO?</a>
         </main>
     </div>
 </body>
