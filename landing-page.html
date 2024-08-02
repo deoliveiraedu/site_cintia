@@ -253,6 +253,35 @@
         }
 
     </style>
+
+    <!-- Preload images -->
+    <link rel="preload" href="/assets/img/home-bg.webp" as="image" id="firstImage">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Preload the first image
+            const firstImage = document.getElementById('firstImage');
+            
+            // Create an Image object to preload the first image
+            const preloadImage = new Image();
+            preloadImage.src = firstImage.href;
+
+            // Set a timeout to preload the rest of the images after 1 second
+            setTimeout(function() {
+                const images = [
+                    '/assets/img/projetos/residencial/estar-jantar/11.webp',
+                    '/assets/img/projetos/residencial/cozinha/2.webp',
+                    '/assets/img/projetos/residencial/banheiro/10.webp',
+                    '/assets/img/projetos/residencial/varanda/6.webp'
+                ];
+
+                images.forEach(function(imageSrc) {
+                    const img = new Image();
+                    img.src = imageSrc;
+                });
+            }, 1000); // 1 second delay
+        });
+    </script>
+
 </head>
 <body>
     <div class="container">
